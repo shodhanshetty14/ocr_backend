@@ -7,6 +7,7 @@ import ftfy
 from numpy import unicode_
 import pytesseract
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 import Dbmongo.connect_database as db
 import aadhaar_read
@@ -15,6 +16,7 @@ import pan_read
 from aadharValidation import Validate
 
 app = Flask(__name__)
+CORS(app)
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
